@@ -4,6 +4,8 @@ import styles from './App.module.scss'
 import Header from './components/header/Header';
 import Info from './components/info/Info';
 import Options from './components/options/Options';
+import Preview from './components/preview/Preview';
+import Footer from './components/footer/Footer';
 
 class App extends React.Component {
 	render () {
@@ -12,15 +14,15 @@ class App extends React.Component {
 				<Header/>
 
 				<div className={styles.content}>
-					<div className={styles.preview}>previewImage</div>
+					<Preview/>
+
 					<div>
 						<Info/>
 						<Options/>
 					</div>
-
 				</div>
 
-				<div className={styles.footer}>Footer</div>
+				<Footer/>
 			</div>
 		);
 	}
