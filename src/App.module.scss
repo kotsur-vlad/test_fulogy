@@ -1,0 +1,25 @@
+@import './common/styles/sass/mixins';
+
+.wrapper {
+	background-color: #f8f8f8;
+}
+
+.content {
+	@include flex (row, center, center);
+
+	height: 78vh;
+}
+
+.footer {
+	height: 12vh;
+	background-color: #f8f8f8;
+	color: black;
+}
+
+.preview {
+	width: 46vw;
+	height: 70vh;
+	margin: 5vh 3vw;
+
+	background-color: azure;
+}

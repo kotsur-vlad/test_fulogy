@@ -1,0 +1,18 @@
+@import '../../common/styles/sass/mixins';
+
+.header {
+	@include flex (row, flex-end, center);
+	height: 10vh;
+	background-color: #1a1a1a;
+	.logo {
+		margin-right: auto;
+		margin-left: 3vw;
+	}
+	.basket {
+
+	}
+	.gamburgerMenu {
+		margin-right: 3vw;
+		margin-left: 3vw;
+	}
+}
