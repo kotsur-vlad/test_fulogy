@@ -12,16 +12,13 @@ class App extends React.Component {
 		return (
 			<div className={styles.wrapper}>
 				<Header/>
-
 				<div className={styles.content}>
 					<Preview/>
-
-					<div>
+					<div className={styles.rightWrapper}>
 						<Info/>
 						<Options/>
 					</div>
 				</div>
-
 				<Footer/>
 			</div>
 		);

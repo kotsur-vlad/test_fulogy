@@ -4,5 +4,20 @@
   width: 48vw;
   height: 42vh;
 
-  background-color: lightpink;
+  ul {
+
+  }
+
+  li {
+    @include flex (row, space-between, center);
+  }
+
+  .property {
+    margin-left: 4vw;
+    font-size: 1.6rem;
+  }
+
+  .value {
+    margin-right: 25vw;
+  }
 }

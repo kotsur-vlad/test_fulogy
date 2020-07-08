@@ -4,5 +4,25 @@
   width: 48vw;
   height: 36vh;
 
-  background-color: lightskyblue;
+  .header {
+    @include flex (row, flex-start, center);
+    height: 10vh;
+    background-color: #00b6ff;
+
+    button{
+      @include flex (row, center, center);
+      width: 5.6vw;
+      height: 100%;
+      background-color: #00abf0;
+    }
+
+    span {
+      margin: 0 auto;
+    }
+  }
+
+  .variants {
+    @include flex (row, center, center);
+
+  }
 }

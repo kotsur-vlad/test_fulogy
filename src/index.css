@@ -10,13 +10,19 @@ body {
 	sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	font-size: 1.6rem;
+	font-size: 1.9rem;
 }
 
 ul {
 	margin: 0;
 	padding: 0;
 	list-style: none;
+}
+
+button {
+	border: none;
+	outline: none;
+	cursor: pointer;
 }
 
 a {
