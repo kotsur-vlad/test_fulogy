@@ -4,6 +4,7 @@ import styles from './Header.module.scss';
 import logo from '../../assets/images/logo.svg';
 import menu from '../../assets/images/menu.svg';
 import close from '../../assets/images/close.svg';
+import cart from '../../assets/images/cart.svg';
 
 class Header extends React.Component {
 
@@ -23,11 +24,11 @@ class Header extends React.Component {
 
 		return (
 			<div className={styles.header}>
-
 				<img className={styles.logo} src={logo} alt="Fulogy"/>
-
-				<a className={styles.basket} href="#">shopIcon</a>
-
+				<a className={styles.basket} href="#">
+					<img src={cart} alt="ShopCart"/>
+					<span>{this.props.lampCount}1</span>
+				</a>
 				<button className={styles.toggle} onClick={this.onToggleClick}>
 					{this.state.isHidden ? <img src={menu} alt="Menu"/> : <img src={close} alt="Close"/>}
 				</button>
