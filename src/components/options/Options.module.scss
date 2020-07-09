@@ -4,16 +4,54 @@
   width: 48vw;
   height: 36vh;
 
+  .info {
+    position: absolute;
+    top: 10vh;
+    left: 0;
+    width: 100vw;
+    height: 78vh;
+    box-sizing: border-box;
+    padding: 5vh 3vw;
+    background-color: #f8f8f8;
+    font-size: 1.6rem;
+
+    button {
+      height: 2.5vh;
+      background-color: #f8f8f8;
+      opacity: 0.4;
+
+      &:hover {
+        -webkit-box-shadow: 1px 1px 5px -1px rgba(138, 138, 138, 1);
+        -moz-box-shadow: 1px 1px 5px -1px rgba(138, 138, 138, 1);
+        box-shadow: 1px 1px 5px -1px rgba(138, 138, 138, 1);
+        opacity: 1;
+      }
+    }
+
+    p {
+      margin-top: 3vh;
+    }
+  }
+
   .header {
-    @include flex (row, flex-start, center);
+    @include flex(row, flex-start, center);
     height: 10vh;
     background-color: #00b6ff;
 
-    button{
-      @include flex (row, center, center);
+    button {
+      @include flex(row, center, center);
       width: 5.6vw;
       height: 100%;
       background-color: #00abf0;
+
+      &:active {
+        position: relative;
+        top: 1px;
+      }
+
+      img {
+        height: 4vh;
+      }
     }
 
     span {
@@ -22,7 +60,8 @@
   }
 
   .variants {
-    @include flex (row, center, center);
+    @include flex(row, center, center);
 
   }
 }
+

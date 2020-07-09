@@ -7,6 +7,9 @@ class Preview extends React.Component {
 		return (
 			<div className={styles.preview}>
 				previewImage
+				<div>
+
+				</div>
 			</div>
 		)
 	}

@@ -14,9 +14,11 @@
     @include flex(row, center, center);
     position: relative;
     width: 3vw;
+
     img {
       width: 1.8vw;
     }
+
     span {
       @include flex(row, center, center);
       position: absolute;
@@ -47,6 +49,7 @@
   }
 
   .menu {
+    z-index: 1;
     position: absolute;
     bottom: 0;
     width: 32vw;
