@@ -9,15 +9,38 @@
   }
 
   li {
-    @include flex (row, space-between, center);
+    @include flex (row, flex-start, center);
+    height: 7vh;
   }
 
   .property {
+    width: 18vw;
     margin-left: 4vw;
     font-size: 1.6rem;
   }
 
   .value {
-    margin-right: 25vw;
+    width: 22vw;
   }
+
+  .classButton {
+    width: 8vw;
+    height: 5vh;
+    padding: 0;
+    box-sizing: border-box;
+    border-radius: 7px;
+    font-size: 1.9rem;
+    -webkit-box-shadow: 1px 1px 5px -1px rgba(138, 138, 138, 1);
+    -moz-box-shadow: 1px 1px 5px -1px rgba(138, 138, 138, 1);
+    box-shadow: 1px 1px 5px -1px rgba(138, 138, 138, 1);
+
+    &:hover {
+      position: relative;
+      top: 1px;
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+      box-shadow: none;
+    }
+  }
+
 }
