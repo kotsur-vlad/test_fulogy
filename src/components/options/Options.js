@@ -16,15 +16,16 @@ class Options extends React.Component {
 	};
 
 	render () {
+
+		const description = this.props.fullDescription.map( d => <p>{d}</p> )
+
 		return (
 			<div className={styles.options}>
 				{ !this.state.isHidden && <div className={styles.info}>
 					<button onClick={this.onInfoClick}>
 						&#60; Вернуться
 					</button>
-					<p>
-						this.props.kitchens[0].fullDescription
-					</p>
+					{description}
 				</div>}
 				<div className={styles.header}>
 					<button onClick={this.onInfoClick}>

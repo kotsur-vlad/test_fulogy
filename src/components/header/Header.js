@@ -24,10 +24,12 @@ class Header extends React.Component {
 
 		return (
 			<div className={styles.header}>
-				<img className={styles.logo} src={logo} alt="Fulogy"/>
+				<a className={styles.logo} href="#">
+					<img src={logo} alt="Fulogy"/>
+				</a>
 				<a className={styles.basket} href="#">
 					<img src={cart} alt="ShopCart"/>
-					<span>{this.props.lampCount}1</span>
+					<span>{this.props.lampCount}</span>
 				</a>
 				<button className={styles.toggle} onClick={this.onToggleClick}>
 					{this.state.isHidden ? <img src={menu} alt="Menu"/> : <img src={close} alt="Close"/>}
