@@ -2,6 +2,7 @@ import React from 'react';
 
 import styles from './Options.module.scss';
 import info from '../../assets/images/info.svg';
+import OptionItem from './OptionItem';
 
 class Options extends React.Component {
 
@@ -9,7 +10,7 @@ class Options extends React.Component {
 		isHidden: true,
 	};
 
-	onInfoClick = () => {
+	onShowInfoClick = () => {
 		this.setState({
 			isHidden: !this.state.isHidden
 		});
@@ -17,30 +18,31 @@ class Options extends React.Component {
 
 	render () {
 
-		const description = this.props.fullDescription.map( d => <p>{d}</p> )
+		const description = this.props.fullDescription.map(d => <p>{d}</p>);
+
+		const optionItems = this.props.activeOption.options.properties.map(oi => <OptionItem key={oi.id}
+																							 id={oi.id}
+																							 isChecked={oi.isChecked}
+																							 title={oi.title}
+																							 style={this.props.activeOption.options.style}/>);
 
 		return (
 			<div className={styles.options}>
 				{ !this.state.isHidden && <div className={styles.info}>
-					<button onClick={this.onInfoClick}>
+					<button onClick={this.onShowInfoClick}>
 						&#60; Вернуться
 					</button>
 					{description}
 				</div>}
 				<div className={styles.header}>
-					<button onClick={this.onInfoClick}>
+					<button onClick={this.onShowInfoClick}>
 						<img src={info} alt="Info"/>
 					</button>
-
-					<span>Выберите: {this.props.optionTitle}</span>
+					<span>Выберите <span className={styles.optionTitle}>{this.props.activeOption.title}</span></span>
 				</div>
-
-				<div className={styles.variants}>
-					<div>1</div>
-					<div>2</div>
-					<div>3</div>
+				<div className={styles.optionItems}>
+					{optionItems}
 				</div>
-
 			</div>
 		);
 	}

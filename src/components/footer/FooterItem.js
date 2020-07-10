@@ -4,8 +4,10 @@ import styles from './FooterItem.module.scss';
 
 class FooterItem extends React.Component {
 
-	onOptionClick = () => {
-		this.props.chooseActiveOption(this.props.id)
+	onItemClick = () => {
+		if (this.props.isCompleted !== 'active') {
+			this.props.chooseActiveFooterItem(this.props.id)
+		}
 	}
 
 	render () {
@@ -14,7 +16,7 @@ class FooterItem extends React.Component {
 			this.props.isCompleted ? `${styles.item} ${styles.completed}` : styles.item;
 
 		return (
-			<div className={classForItem} onClick={this.onOptionClick}>
+			<div className={classForItem} onClick={this.onItemClick}>
 				{this.props.title}
 			</div>
 		);

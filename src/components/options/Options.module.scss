@@ -5,6 +5,7 @@
   height: 36vh;
 
   .info {
+    z-index: 10;
     position: absolute;
     top: 10vh;
     left: 0;
@@ -35,18 +36,19 @@
 
   .header {
     @include flex(row, flex-start, center);
+    position: relative;
     height: 10vh;
     background-color: #00b6ff;
 
     button {
       @include flex(row, center, center);
+      position: absolute;
       width: 5.6vw;
       height: 100%;
       padding: 0;
       background-color: #00abf0;
 
       &:active {
-        position: relative;
         top: 1px;
       }
 
@@ -57,11 +59,16 @@
 
     span {
       margin: 0 auto;
+
+      .optionTitle {
+        text-transform: lowercase;
+      }
     }
   }
 
-  .variants {
+  .optionItems {
     @include flex(row, center, center);
+    height: 26vh;
 
   }
 }
