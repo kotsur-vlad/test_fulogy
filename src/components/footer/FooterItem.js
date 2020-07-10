@@ -6,7 +6,7 @@ class FooterItem extends React.Component {
 
 	onItemClick = () => {
 		if (this.props.isCompleted !== 'active') {
-			this.props.chooseActiveFooterItem(this.props.id)
+			this.props.chooseActive(this.props.id)
 		}
 	}
 

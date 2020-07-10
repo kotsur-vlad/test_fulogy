@@ -1,0 +1,14 @@
+@import '../../common/styles/sass/mixins';
+
+.item {
+  width: 0.8vw;
+  height: 1.4vh;
+  margin: 0 0.8vw;
+  border: 1px solid #b9b9b9;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.active {
+  background-color: white;
+}

@@ -1,21 +1,23 @@
 @import '../../common/styles/sass/mixins';
 
 .preview {
+  position: relative;
   width: 46vw;
   height: 70vh;
   margin: 5vh 3vw;
+  background-repeat: no-repeat;
+  background-size: cover;
 
-  background-color: rgba(0, 255, 255, 0.1);
-  //background-color: rgba(255, 0, 0, 0.1);
-
-  img {
-    width: 800px;
-    //mix-blend-mode: lighten  ;
+  .filterLayer {
+    height: 45vh;
+    background-color: rgba(0, 255, 255, 0.1);
+    mix-blend-mode: color;
   }
 
-  .test {
-    height: 40vh;
-    background-color: rgba(0, 255, 255, 0.1);
-    mix-blend-mode: color  ;
+  .toggle {
+    @include flex(row, center, center);
+    position: absolute;
+    top: 64vh;
+    width: 100%;
   }
 }

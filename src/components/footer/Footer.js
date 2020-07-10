@@ -8,7 +8,7 @@ class Footer extends React.Component {
 	render () {
 
 		const footerItems = this.props.footerItems.map(fi => <FooterItem key={fi.id} id={fi.id} title={fi.title}
-																		 chooseActiveFooterItem={this.props.chooseActiveFooterItem}
+																		 chooseActive={this.props.chooseActiveFooterItem}
 																		 isCompleted={fi.isCompleted}/>);
 
 		return (

@@ -201,14 +201,14 @@ class App extends React.Component {
 		return (
 			<div className={styles.wrapper}>
 				<Header lampCount={this.state.tempCalculation.lampCount}/>
-
 				<div className={styles.content}>
-					<Preview images={this.state.kitchens[0].preview}/>
+					<Preview images={this.state.tempCalculation.kitchen.preview}/>
+
 					<div className={styles.rightWrapper}>
 						<Info/>
 
 						<Options activeOption={activeOption} chooseActiveOptionItem={this.chooseActiveOptionItem}
-								 fullDescription={this.state.tempCalculation.kitchen.fullDescription}/>
+								 fullKitchenDescription={this.state.tempCalculation.kitchen.fullDescription}/>
 					</div>
 				</div>
 				<Footer footerItems={this.state.footerItems} chooseActiveFooterItem={this.chooseActiveFooterItem}/>

@@ -1,29 +1,59 @@
 import React from 'react';
 
 import styles from './Preview.module.scss';
+import ToggleItem from './ToggleItem';
 
 class Preview extends React.Component {
-	state = {
-		isChecked: true
+	constructor (props) {
+		super(props);
+		const initialImages = this.props.images.map((img, i) => {
+			return {id: i, image: img, isActive: false};
+		});
+		initialImages[0].isActive = true;
+
+		this.state = {
+			images: initialImages
+		};
 	}
 
+	state = {
+		images: [],
+	};
+
+	chooseActiveToggleItem = (activeImageId) => {
+		let newImages = this.state.images.map(img => {
+			if (img.id === activeImageId) {
+				return {
+					...img, isActive: true
+				};
+			} else {
+				return {
+					...img, isActive: false
+				};
+			}
+		});
+		this.setState({
+			images: newImages
+		});
+	};
+
 	render () {
-
-
-		let style = {
-			backgroundImage: `url(${this.props.images[0]})`,
-		}
+		const toggleItems = this.state.images.map(img => <ToggleItem key={img.id} id={img.id} isActive={img.isActive}
+																	 chooseActive={this.chooseActiveToggleItem}/>);
+		const activeImage = this.state.images.find(img => img.isActive).image;
+		const activeImageStyle = {
+			backgroundImage: `url(${activeImage})`
+		};
 
 		return (
-			<div style={style} className={styles.preview}>
-				<div className={styles.test}>
+			<div style={activeImageStyle} className={styles.preview}>
+
+				<div className={styles.filterLayer}>
 
 				</div>
-				{/*<img className={styles.test} src={this.props.images[0]} alt=""/>*/}
-				<div >
-					<div>1</div>
-					<div>2</div>
-					<div>3</div>
+
+				<div className={styles.toggle}>
+					{toggleItems}
 				</div>
 			</div>
 		);

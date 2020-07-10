@@ -18,14 +18,14 @@ class Options extends React.Component {
 
 	render () {
 
-		const description = this.props.fullDescription.map(d => <p>{d}</p>);
+		const description = this.props.fullKitchenDescription.map(d => <p>{d}</p>);
 
 		const optionItems = this.props.activeOption.options.properties.map(oi => <OptionItem key={oi.id}
 																							 id={oi.id}
 																							 isChecked={oi.isChecked}
 																							 title={oi.title}
 																							 style={this.props.activeOption.options.style}
-																							 chooseActiveOptionItem={this.props.chooseActiveOptionItem}/>);
+																							 chooseActive={this.props.chooseActiveOptionItem}/>);
 
 		return (
 			<div className={styles.options}>
