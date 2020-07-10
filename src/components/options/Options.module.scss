@@ -1,4 +1,5 @@
 @import '../../common/styles/sass/mixins';
+@import '../../common/styles/sass/variables';
 
 .options {
   width: 48vw;
@@ -13,12 +14,12 @@
     height: 78vh;
     box-sizing: border-box;
     padding: 5vh 3vw;
-    background-color: #f8f8f8;
+    background-color: $bgColor;
     font-size: 1.6rem;
 
     button {
       height: 2.5vh;
-      background-color: #f8f8f8;
+      background-color: $bgColor;
       opacity: 0.4;
 
       &:hover {
@@ -38,7 +39,8 @@
     @include flex(row, flex-start, center);
     position: relative;
     height: 10vh;
-    background-color: #00b6ff;
+    background-color: $primaryColor;
+    color: $bgColor;
 
     button {
       @include flex(row, center, center);
@@ -46,7 +48,7 @@
       width: 5.6vw;
       height: 100%;
       padding: 0;
-      background-color: #00abf0;
+      background-color: $primaryColorHigh;
 
       &:active {
         top: 1px;

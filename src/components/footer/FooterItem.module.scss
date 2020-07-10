@@ -1,23 +1,26 @@
 @import '../../common/styles/sass/mixins';
+@import '../../common/styles/sass/variables';
+
+$textColor: #fffff;
 
 .item {
   @include flex(row, center, center);
   width: 12vw;
   height: 100%;
   box-sizing: border-box;
-  border-right: 1px solid #e3e3e3;
-  border-bottom: 0.55vh solid #ff8182;
-  border-left: 1px solid #e3e3e3;
+  border-right: 1px solid $borderColor;
+  border-bottom: 0.55vh solid $notFilledColor;
+  border-left: 1px solid $borderColor;
   text-align: center;
   cursor: pointer;
 }
 
 .completed {
-  border-bottom: 0.55vh solid #00b6ff;
+  border-bottom: 0.55vh solid $primaryColor;
 }
 
 .active {
-  border-bottom: 0.55vh solid #00b6ff;
-  background-color: #00b6ff;
-  color: #ffffff;
+  border-bottom: 0.55vh solid $primaryColor;
+  background-color: $primaryColor;
+  color: $textColor;
 }

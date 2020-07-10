@@ -6,8 +6,8 @@ import checked from '../../assets/images/checked.svg';
 class OptionItem extends React.Component {
 
 	onItemClick = () => {
-		this.props.chooseActive(this.props.id)
-	}
+		this.props.chooseActive(this.props.id);
+	};
 
 	render () {
 

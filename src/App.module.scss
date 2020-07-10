@@ -1,13 +1,14 @@
 @import './common/styles/sass/mixins';
+@import './common/styles/sass/variables';
 
 .wrapper {
-	background-color: #f8f8f8;
+	background-color: $bgColor;
 	.content {
 		@include flex(row, center, center);
 		height: 78vh;
 		.rightWrapper {
 			box-sizing: border-box;
-			border-left: 1px solid #e3e3e3;
+			border-left: 1px solid $borderColor;
 		}
 	}
 }

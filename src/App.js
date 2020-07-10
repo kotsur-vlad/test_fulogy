@@ -14,6 +14,7 @@ import sectionImage from './assets/images/item13.jpg';
 class App extends React.Component {
 
 	state = {
+		//Виды кухонь
 		kitchens: [
 			{
 				title: 'Угловая секция (вар. 2)',
@@ -28,28 +29,28 @@ class App extends React.Component {
 						lightPowerCoeff: 800,
 						costCoeff: 2000,
 						bodyColor: ['gray'],
-						sectionColor: ['day'],
+						sectionColor: ['Дневной'],
 					},
 					standardPlus: {
 						powerCoeff: 59,
 						lightPowerCoeff: 800,
 						costCoeff: 2000,
 						bodyColor: ['gray'],
-						sectionColor: ['day'],
+						sectionColor: ['Дневной'],
 					},
 					pro: {
 						powerCoeff: 59,
 						lightPowerCoeff: 800,
 						costCoeff: 2000,
 						bodyColor: ['gray'],
-						sectionColor: ['warm', 'day', 'cold'],
+						sectionColor: ['Тёплый', 'Дневной', 'cold'],
 					},
 					proPlus: {
 						powerCoeff: 59,
 						lightPowerCoeff: 800,
 						costCoeff: 2000,
 						bodyColor: ['gray', 'black', 'white', 'gold'],
-						sectionColor: ['warm', 'day'],
+						sectionColor: ['Тёплый', 'Дневной'],
 					},
 				},
 				preview: [var1, var2, var3],
@@ -58,7 +59,7 @@ class App extends React.Component {
 			},
 
 		],
-
+		//Врменнный расчет, для сохранения данных
 		tempCalculation: {
 			kitchen: {
 				title: 'Угловая секция (вар. 2)',
@@ -73,41 +74,41 @@ class App extends React.Component {
 						lightPowerCoeff: 800,
 						costCoeff: 2000,
 						bodyColor: ['gray'],
-						sectionColor: ['day'],
+						sectionColor: ['Дневной'],
 					},
 					standardPlus: {
 						powerCoeff: 59,
 						lightPowerCoeff: 800,
 						costCoeff: 2000,
 						bodyColor: ['gray'],
-						sectionColor: ['day'],
+						sectionColor: ['Дневной'],
 					},
 					pro: {
 						powerCoeff: 59,
 						lightPowerCoeff: 800,
 						costCoeff: 2000,
 						bodyColor: ['gray'],
-						sectionColor: ['warm', 'day', 'cold'],
+						sectionColor: ['Тёплый', 'Дневной', 'Холодный'],
 					},
 					proPlus: {
 						powerCoeff: 59,
 						lightPowerCoeff: 800,
 						costCoeff: 2000,
 						bodyColor: ['gray', 'black', 'white', 'gold'],
-						sectionColor: ['warm', 'day'],
+						sectionColor: ['Тёплый', 'Дневной'],
 					},
 				},
 				preview: [var1, var2, var3],
 				sizes: {firstMM: 250, secondMM: 250, cableToSecondMM: 100},
 				warranty: 3,
 			},
-			sizes: {properties: []},
+			sizes: {properties: [{isChecked: null, title: null}]},
 			sensor: null,
 			powerCable: null,
 			powerSupply: null,
 
 			bodyColor: '',
-			sectionColor: '',
+			sectionColor: 'Дневной',
 			mounting: null,
 
 			class: '',
@@ -117,6 +118,8 @@ class App extends React.Component {
 
 			lampCount: 1
 		},
+		//Массив опций для футера, которые динамически отображаются в компоненте 'Options'
+		//Для каждой опции можно задать свои данные
 		footerItems: [
 			{id: 1, title: 'Вариант кухни', isCompleted: true, options: {properties: []}},
 			{id: 2, title: 'Размеры', isCompleted: true, options: {properties: []}},
@@ -126,8 +129,8 @@ class App extends React.Component {
 			{
 				id: 6, title: 'Цвет сечения', isCompleted: 'active', options: {
 					properties: [
-						{id: 1, title: 'Тёплый', isChecked: true},
-						{id: 2, title: 'Дневной', isChecked: false},
+						{id: 1, title: 'Тёплый', isChecked: false},
+						{id: 2, title: 'Дневной', isChecked: true},
 						{id: 3, title: 'Холодный', isChecked: false},
 					],
 					style: {
@@ -145,7 +148,7 @@ class App extends React.Component {
 			{id: 8, title: 'Корзина', isCompleted: false, options: {properties: []}},
 		],
 	};
-
+	//Функция при нажатии на элемент опций
 	chooseActiveOptionItem = (optionItemId) => {
 		let newFooterItems = this.state.footerItems.map(fi => {
 			if (fi.isCompleted === 'active') {
@@ -172,9 +175,17 @@ class App extends React.Component {
 		});
 		this.setState({
 			footerItems: newFooterItems
+		}, () => {
+			const newFilterColor = this.state.footerItems.find(fi => fi.title === 'Цвет сечения').options.properties.find(pr => pr.isChecked).title;
+			this.setState({
+				tempCalculation: {
+					...this.state.tempCalculation,
+					sectionColor: newFilterColor
+				}
+			});
 		});
 	};
-
+	//Функция при нажатии на элемент футера (переключает опции)
 	chooseActiveFooterItem = (footerItemId) => {
 		let newFooterItems = this.state.footerItems.map(fi => {
 			if (fi.isCompleted === 'active') {
@@ -195,18 +206,17 @@ class App extends React.Component {
 	};
 
 	render () {
-
+		//Константа, в ней объект выбранной опции, которая отображается в 'Options'
 		const activeOption = this.state.footerItems.find(fi => fi.isCompleted === 'active');
 
 		return (
 			<div className={styles.wrapper}>
 				<Header lampCount={this.state.tempCalculation.lampCount}/>
 				<div className={styles.content}>
-					<Preview images={this.state.tempCalculation.kitchen.preview}/>
-
+					<Preview images={this.state.tempCalculation.kitchen.preview}
+							 activeSectionColor={this.state.tempCalculation.sectionColor}/>
 					<div className={styles.rightWrapper}>
 						<Info/>
-
 						<Options activeOption={activeOption} chooseActiveOptionItem={this.chooseActiveOptionItem}
 								 fullKitchenDescription={this.state.tempCalculation.kitchen.fullDescription}/>
 					</div>

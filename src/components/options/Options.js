@@ -17,7 +17,7 @@ class Options extends React.Component {
 	};
 
 	render () {
-
+		//Описание кухни, разбитое на абзацы
 		const description = this.props.fullKitchenDescription.map(d => <p>{d}</p>);
 
 		const optionItems = this.props.activeOption.options.properties.map(oi => <OptionItem key={oi.id}

@@ -7,7 +7,6 @@ import close from '../../assets/images/close.svg';
 import cart from '../../assets/images/cart.svg';
 
 class Header extends React.Component {
-
 	state = {
 		isHidden: true,
 	};

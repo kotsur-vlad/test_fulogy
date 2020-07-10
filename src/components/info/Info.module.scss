@@ -9,7 +9,7 @@
   }
 
   li {
-    @include flex (row, flex-start, center);
+    @include flex(row, flex-start, center);
     height: 7vh;
   }
 

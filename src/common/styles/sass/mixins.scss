@@ -5,3 +5,8 @@
   align-items: $minorAxis;
 }
 
+@mixin box-shadow ($hL, $vL, $bR, $sR, $color) {
+  -webkit-box-shadow: $hL $vL $bR $sR $color;
+  -moz-box-shadow: $hL $vL $bR $sR $color;
+  box-shadow: $hL $vL $bR $sR $color;
+}

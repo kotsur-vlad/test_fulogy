@@ -1,0 +1,15 @@
+@import '../styles/sass/mixins';
+@import '../styles/sass/variables';
+
+.item {
+  width: 0.8vw;
+  height: 1.4vh;
+  margin: 0 0.8vw;
+  border: 1px solid $borderColor;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.active {
+  background-color: #ffffff;
+}

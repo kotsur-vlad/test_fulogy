@@ -1,8 +1,9 @@
 @import '../../common/styles/sass/mixins';
+@import '../../common/styles/sass/variables';
 
 .footer {
   @include flex (row, center, flex-start);
   height: 12vh;
   box-sizing: border-box;
-  border-top: 1px solid #e3e3e3;
+  border-top: 1px solid $borderColor;
 }

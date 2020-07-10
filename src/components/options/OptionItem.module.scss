@@ -1,9 +1,13 @@
 @import '../../common/styles/sass/mixins';
+@import '../../common/styles/sass/variables';
+
+$bgItemColor: #5e5e5e;
+$textItemColor: #ffffff;
 
 .item {
   position: relative;
   box-sizing: border-box;
-  border: 2px solid #c7c7c7;
+  border: 2px solid $borderColor;
   border-radius: 3px;
   transition: (all 0.5s);
   cursor: pointer;
@@ -20,7 +24,7 @@
     width: 1.5vw;
     height: 2.8vh;
     border-radius: 1px;
-    background-color: #00b6ff;
+    background-color: $primaryColor;
     transform: scale(1.1);
 
     img {
@@ -35,8 +39,8 @@
     bottom: 0;
     width: 100%;
     height: 4vh;
-    background-color: #5e5e5e;
-    color: #ffffff;
+    background-color: $bgItemColor;
+    color: $textItemColor;
     font-size: 1.6rem;
   }
 
