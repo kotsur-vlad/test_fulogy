@@ -12,7 +12,7 @@
     transform: scale(1.1)
   }
 
-  .checked {
+  .checkIcon {
     @include flex(row, center, center);
     position: absolute;
     top: 1vh;
@@ -40,4 +40,8 @@
     font-size: 1.6rem;
   }
 
+}
+
+.checked {
+  transform: scale(1.1)
 }

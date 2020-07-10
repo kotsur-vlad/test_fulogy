@@ -5,14 +5,17 @@ import checked from '../../assets/images/checked.svg';
 
 class OptionItem extends React.Component {
 
-	// onOptionClick = () => {
-	// 	this.props.(this.props.id)
-	// }
+	onItemClick = () => {
+		this.props.chooseActiveOptionItem(this.props.id)
+	}
 
 	render () {
+
+		const classForChecked = this.props.isChecked ? `${styles.item} ${styles.checked}` : styles.item;
+
 		return (
-			<div style={this.props.style} className={styles.item} onClick={this.onOptionClick}>
-				{this.props.isChecked && <div className={styles.checked}>
+			<div style={this.props.style} className={classForChecked} onClick={this.onItemClick}>
+				{this.props.isChecked && <div className={styles.checkIcon}>
 					<img src={checked} alt="checked"/>
 				</div>}
 				<div className={styles.itemTitle}>{this.props.title}</div>

@@ -146,13 +146,42 @@ class App extends React.Component {
 		],
 	};
 
-	chooseActiveFooterItem = (id) => {
+	chooseActiveOptionItem = (optionItemId) => {
+		let newFooterItems = this.state.footerItems.map(fi => {
+			if (fi.isCompleted === 'active') {
+				return {
+					...fi,
+					options: {
+						...fi.options,
+						properties: fi.options.properties.map(pr => {
+							if (pr.id === optionItemId) {
+								return {
+									...pr, isChecked: true
+								};
+							} else {
+								return {
+									...pr, isChecked: false
+								};
+							}
+						})
+					}
+				};
+			} else {
+				return fi;
+			}
+		});
+		this.setState({
+			footerItems: newFooterItems
+		});
+	};
+
+	chooseActiveFooterItem = (footerItemId) => {
 		let newFooterItems = this.state.footerItems.map(fi => {
 			if (fi.isCompleted === 'active') {
 				return {
 					...fi, isCompleted: true
 				};
-			} else if (fi.id === id) {
+			} else if (fi.id === footerItemId) {
 				return {
 					...fi, isCompleted: 'active'
 				};
@@ -178,8 +207,7 @@ class App extends React.Component {
 					<div className={styles.rightWrapper}>
 						<Info/>
 
-						<Options activeOption={activeOption}
-
+						<Options activeOption={activeOption} chooseActiveOptionItem={this.chooseActiveOptionItem}
 								 fullDescription={this.state.tempCalculation.kitchen.fullDescription}/>
 					</div>
 				</div>

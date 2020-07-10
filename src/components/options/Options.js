@@ -24,7 +24,8 @@ class Options extends React.Component {
 																							 id={oi.id}
 																							 isChecked={oi.isChecked}
 																							 title={oi.title}
-																							 style={this.props.activeOption.options.style}/>);
+																							 style={this.props.activeOption.options.style}
+																							 chooseActiveOptionItem={this.props.chooseActiveOptionItem}/>);
 
 		return (
 			<div className={styles.options}>
