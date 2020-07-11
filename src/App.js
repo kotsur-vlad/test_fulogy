@@ -127,7 +127,7 @@ class App extends React.Component {
 			{id: 4, title: 'Питающий кабель', isCompleted: true, options: {properties: []}},
 			{id: 5, title: 'Блок питания', isCompleted: true, options: {properties: []}},
 			{
-				id: 6, title: 'Цвет сечения', isCompleted: 'active', options: {
+				id: 6, title: 'Цвет свечения', isCompleted: 'active', options: {
 					properties: [
 						{id: 1, title: 'Тёплый', isChecked: false},
 						{id: 2, title: 'Дневной', isChecked: true},
